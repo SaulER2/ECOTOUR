@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const Sign_up = () => {
+/*const Sign_up = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
@@ -63,7 +63,7 @@ const Sign_up = () => {
 
 export default Sign_up;
 
-/*export const Sign_up = () => {
+export const Sign_up = () => {
   return (
     <div>
       <h1>Sign Up</h1>
@@ -71,13 +71,13 @@ export default Sign_up;
   )
 }*/
 
-/*
+
 export default function Sign_up() {
   return (
     <div>
       <header>
-        <h4>Sigh up</h4><br/>
-        <h4>Llene los siguientes datos</h4>
+        <h1>Sign up</h1><br/>
+        <h2>Fill all the fields</h2>
     </header>
     <main>
       <section>
@@ -112,4 +112,4 @@ export default function Sign_up() {
     </main>
     </div>
   )
-}*/
+}

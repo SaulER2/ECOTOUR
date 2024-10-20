@@ -1,0 +1,61 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 10vh;
+    background-color: rgb(96, 252, 23);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-size: contain;
+    position: fixed;
+    top:0;
+}
+
+figure.LogoBox
+{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 40%;
+    height: 10vh;
+    position: fixed;
+}
+
+img.Logo{
+    width: 10vw;
+    height: 10vh;
+    position: fixed;
+}
+
+.nav
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    margin-left: 80vw;
+    margin-top: 3vh;
+}
+
+.nav__list
+{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+
+.nav__list--item
+{
+    margin: 10px;
+}
+
+
+
+h1{
+    margin-left: 11vw;
+    font-size: 7vh;
+}
+
+
+

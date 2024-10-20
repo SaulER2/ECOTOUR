@@ -1,33 +1,38 @@
 import React, {useState} from 'react'
+import {Link} from 'react-router-dom';
 import "./Login.css"
 
 
 export const Login = () => {
   return (
     <div className='wrapper' id='main__login'>
+      <div className='login__container'>
+      <h1 className='h1'>Login</h1>
         <form action="">
-          <h1>Login</h1>
-          <label htmlFor="Usuario">
-            <span>Usuario</span>
-            <input type="text" id='Usuario' placeholder='Usuario1' autoComplete='Usuario' required/><br/>
+          <label htmlFor="Usuario" className="Usuario">
+            <span>Username</span>
+            <input type="text" id='Usuario' placeholder='Username1' autoComplete='Usuario' required/><br/>
           </label>
-          <label htmlFor="Password">
-            <span>Contraseña</span>
+          <label htmlFor="Password" className="Contraseña">
+            <span>Password</span>
             <input type="password" id="Password" placeholder='********' autoComplete='current-password' required/><br/>
           </label>
           <div className='remember-forgot'>
-            <label htmlFor="Forgotpassword">
+            <label htmlFor="Forgotpassword" className="remember-forgot">
               <input type="checkbox"/>
-              <span>Recordarme</span><br/>
+              <span>Remind me</span><br/>
             </label>
-            <a href="#">¿Olvidaste la contraseña?</a>
           </div>
-          <input type="submit" value="Enviar"/>
+          <div className = "Enviar">
+          <input type="submit" value="Enviar" className="Enviar"/>
+          </div>
+          <a href="#" className='a'>Forgot the password?</a>
           <div className='register'>
-            <span>¿No tenes cuenta?</span>
-            <a href="../SignupForm/Sign_up.jsx">Resgistrate</a>
+            <span>Don't have an account? </span>
+            <Link to="/signup" className='a'>Sign up!</Link>
           </div>
         </form>
+      </div>
     </div>
   )
 }

@@ -8,6 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 //User = Clase -> Long = Tipo de dato del id
 public interface UserRepository extends JpaRepository<User, Long>{
-    boolean existsByUsername(String username);
 }
 
