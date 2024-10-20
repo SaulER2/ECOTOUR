@@ -1,122 +1,60 @@
 package Ecotour.ecotour.modelo;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-/*import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;*/
+import jakarta.persistence.Column; //Importa la clase Column de la librería jakarta.persistence
+import jakarta.persistence.Entity;  //Importa la clase Entity de la librería jakarta.persistence
+import jakarta.persistence.GeneratedValue; //Importa la clase GeneratedValue de la librería jakarta.persistence
+import jakarta.persistence.GenerationType; //Importa la clase GenerationType de la librería jakarta.persistence
+import jakarta.persistence.Id; //Importa la clase Id de la librería jakarta.persistence
+import jakarta.persistence.Table; //Importa la clase Table de la librería jakarta.persistence
+import lombok.AllArgsConstructor; //Importa la clase AllArgsConstructor de la librería lombok
+import lombok.Data; //Importa la clase Data de la librería lombok
+import lombok.NoArgsConstructor; //Importa la clase NoArgsConstructor de la librería lombok
 
-@Entity
-@Table(name = "user")
-/*@Data //Crea Getters y Setters
-@AllArgsConstructor //Crea un constructor
-@NoArgsConstructor //Crea un constructor sin ningun campo*/
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+@Data //Crea Getters y Setters
+@AllArgsConstructor //Crea un constructor con todos los campos
+@NoArgsConstructor //Crea un constructor vacío
+@Entity    //Indica que la clase es una entidad
+@Table(name = "user") //Indica el nombre de la tabla en la base de datos
+
+public class User { //Clase User
+    @Id //Indica que el atributo es la llave primaria
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //Genera un valor automático para la llave primaria
+    private long id; //Atributo id de tipo long
     
-    @Column(nullable = false, unique = true)
-    private String username;
+    @Column(nullable = false, unique = true) //Indica que el atributo no puede ser nulo y que es único
+    private String username; //Atributo username de tipo String
     
-    @Column(nullable = false)
-    private String password;
+    @Column(nullable = false) //Indica que el atributo no puede ser nulo
+    private String password; //Atributo password de tipo String
     
-    @Column (nullable = false)
-    private String name;
+    @Column (nullable = false) //Indica que el atributo no puede ser nulo
+    private String name; //Atributo name de tipo String
     
-    @Column (nullable = false)
-    private String lastname;
+    @Column (nullable = false) //Indica que el atributo no puede ser nulo
+    private String lastname; //Atributo lastname de tipo String
     
-    @Column (nullable = false)
-    private String email;
+    @Column (nullable = false) //Indica que el atributo no puede ser nulo
+    private String email; //Atributo email de tipo String
     
-    @Column (nullable = true)
-    private long phone;
+    @Column (nullable = true) //Indica que el atributo puede ser nulo
+    private long phone; //Atributo phone de tipo long
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public long getPhone() {
-        return phone;
-    }
-
-    public void setPhone(long phone) {
-        this.phone = phone;
-    }
+    @Column (nullable = false) //Indica que el atributo puede ser nulo
+    private boolean active = true; //Atributo activo de tipo boolean
     
-    public User(long id, String username, String password, String name, String lastname, String email, long phone) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.name = name;
-        this.lastname = lastname;
-        this.email = email;
-        this.phone = phone;
-    }
-
-    public User(String username, String password, String name, String lastname, String email, long phone) {
-        this.username = username;
-        this.password = password;
-        this.name = name;
-        this.lastname = lastname;
-        this.email = email;
-        this.phone = phone;
+    public User(String username, String password, String name, String lastname, String email, long phone) { //Constructor de la clase User
+        this.username = username; //Asigna el valor de username al atributo username
+        this.password = password; //Asigna el valor de password al atributo password
+        this.name = name; //Asigna el valor de name al atributo name
+        this.lastname = lastname;  //Asigna el valor de lastname al atributo lastname
+        this.email = email; //Asigna el valor de email al atributo email
+        this.phone = phone; //Asigna el valor de phone al atributo phone
     }
 
     public User(String username, String password, String name, String lastname, String email) {
-        this.username = username;
-        this.password = password;
-        this.name = name;
+        this.username = username; 
+        this.password = password; 
+        this.name = name; 
         this.lastname = lastname;
         this.email = email;
     }
@@ -134,6 +72,8 @@ public class User {
         this.phone = phone;
     }
 
-    public User() {
+    public User(boolean active) {
+        this.active = active;
     }
+
 }

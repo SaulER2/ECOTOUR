@@ -1,88 +1,31 @@
 package Ecotour.ecotour.dto;
 
-public class UserDTO {
+import lombok.AllArgsConstructor; //importa la librería lombok para crear un constructor con todos los campos
+import lombok.Data; //importa la librería lombok para crear Getters y Setters
+import lombok.NoArgsConstructor; //importa la librería lombok para crear un constructor vacío
 
-    private long id;
-    private String username;
-    private String password;
-    private String name;
-    private String lastname;
-    private String email;
-    private long phone;
+@Data //Crea Getters y Setters
+@AllArgsConstructor //Crea un constructor con todos los campos
+@NoArgsConstructor //Crea un constructor vacío
+public class UserDTO { //Clase UserDTO
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    private long id; //Atributo id de tipo long
+    private String username; //Atributo username de tipo String
+    private String password; //Atributo password de tipo String
+    private String name; //Atributo name de tipo String
+    private String lastname; //Atributo lastname de tipo String
+    private String email; //Atributo email de tipo String
+    private long phone; //Atributo phone de tipo long
+    private boolean active = true; //Atributo activo de tipo boolean
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setPhone(long phone) {
-        this.phone = phone;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public long getPhone() {
-        return phone;
-    }
-
-    public UserDTO(long id, String username, String password, String name, String lastname, String email, long phone) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.name = name;
-        this.lastname = lastname;
-        this.email = email;
-        this.phone = phone;
-    }
-
-    public UserDTO(String username, String password, String name, String lastname, String email, long phone) {
-        this.username = username;
-        this.password = password;
-        this.name = name;
-        this.lastname = lastname;
-        this.email = email;
-        this.phone = phone;
+    public UserDTO(String username, String password, String name, String lastname, String email, long phone) { //Constructor de la clase UserDTO
+        this.username = username; //Asigna el valor de username al atributo username
+        this.password = password; //Asigna el valor de password al atributo password
+        this.name = name; //Asigna el valor de name al atributo name
+        this.lastname = lastname; //Asigna el valor de lastname al atributo lastname
+        this.email = email; //Asigna el valor de email al atributo email
+        this.phone = phone; //Asigna el valor de phone al atributo phone
     }
 
     public UserDTO(String username, String password, String name, String lastname, String email) {
@@ -106,7 +49,7 @@ public class UserDTO {
         this.phone = phone;
     }
 
-    public UserDTO() {
+    public UserDTO(boolean active) {
+        this.active = active;
     }
-    
 }

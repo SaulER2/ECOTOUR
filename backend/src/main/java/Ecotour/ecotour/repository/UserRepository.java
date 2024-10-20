@@ -1,12 +1,12 @@
 
-package Ecotour.ecotour.repository;
+package Ecotour.ecotour.repository; //Paquete donde se encuentra la clase
 
-import Ecotour.ecotour.modelo.User;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import Ecotour.ecotour.modelo.User; //Importar la clase User
+import org.springframework.data.jpa.repository.JpaRepository; //Importar la interfaz JpaRepository
+import org.springframework.stereotype.Repository; //Importar la anotación Repository
 
-@Repository
-//User = Clase -> Long = Tipo de dato del id
-public interface UserRepository extends JpaRepository<User, Long>{
+@Repository //Anotación Repository para indicar que es un repositorio
+public interface UserRepository extends JpaRepository<User, Long>{ //Interfaz UserRepository que extiende de JpaRepository
+    //User = Clase -> Long = Tipo de dato del id de la clase
 }
 
