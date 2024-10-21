@@ -1,10 +1,12 @@
 package Ecotour.ecotour.modelo;
 
+import java.util.Set; //Importa la clase Set de la librería java.util
 import jakarta.persistence.Column; //Importa la clase Column de la librería jakarta.persistence
 import jakarta.persistence.Entity;  //Importa la clase Entity de la librería jakarta.persistence
 import jakarta.persistence.GeneratedValue; //Importa la clase GeneratedValue de la librería jakarta.persistence
 import jakarta.persistence.GenerationType; //Importa la clase GenerationType de la librería jakarta.persistence
 import jakarta.persistence.Id; //Importa la clase Id de la librería jakarta.persistence
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table; //Importa la clase Table de la librería jakarta.persistence
 import lombok.AllArgsConstructor; //Importa la clase AllArgsConstructor de la librería lombok
 import lombok.Data; //Importa la clase Data de la librería lombok
@@ -18,7 +20,8 @@ import lombok.NoArgsConstructor; //Importa la clase NoArgsConstructor de la libr
 
 public class User { //Clase User
     @Id //Indica que el atributo es la llave primaria
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //Genera un valor automático para la llave primaria
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//Genera un valor automático para la llave primaria
+    //@OneToMany(mappedBy = "user")
     private long id; //Atributo id de tipo long
     
     @Column(nullable = false, unique = true) //Indica que el atributo no puede ser nulo y que es único
@@ -41,6 +44,9 @@ public class User { //Clase User
 
     @Column (nullable = false) //Indica que el atributo puede ser nulo
     private boolean active = true; //Atributo activo de tipo boolean
+
+    @OneToMany(mappedBy = "user")
+    private Set<User_Transport> user_transport;
     
     public User(String username, String password, String name, String lastname, String email, long phone) { //Constructor de la clase User
         this.username = username; //Asigna el valor de username al atributo username
@@ -51,7 +57,7 @@ public class User { //Clase User
         this.phone = phone; //Asigna el valor de phone al atributo phone
     }
 
-    public User(String username, String password, String name, String lastname, String email) {
+    /*public User(String username, String password, String name, String lastname, String email) {
         this.username = username; 
         this.password = password; 
         this.name = name; 
@@ -75,5 +81,9 @@ public class User { //Clase User
     public User(boolean active) {
         this.active = active;
     }
+    
+    public User(long id){
+        this.id = id;
+    }*/
 
 }

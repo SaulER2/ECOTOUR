@@ -7,7 +7,7 @@ import Ecotour.ecotour.servicio.UserService; //Importa la clase UserService del 
 import java.util.List; //Importa la clase List
 import java.util.Optional; //Importa la clase Optional
 import org.springframework.beans.factory.annotation.Autowired; //Importa la clase Autowired
-import org.springframework.web.bind.annotation.CrossOrigin; //Importa la clase CrossOrigin
+//import org.springframework.web.bind.annotation.CrossOrigin; //Importa la clase CrossOrigin
 import org.springframework.web.bind.annotation.DeleteMapping; //Importa la clase DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping; //Importa la clase GetMapping
 import org.springframework.web.bind.annotation.PathVariable; //Importa la clase PathVariable

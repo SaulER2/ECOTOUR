@@ -13,10 +13,6 @@ public class TransportDTO { // Clase TransportDTO
     private String name; // Atributo name de tipo String
     private String description; // Atributo description de tipo String
     private boolean active = true; // Atributo activo de tipo boolean
-    /*private String origin;
-    private String destination;
-    private float price;
-    private int hours;*/
 
     public TransportDTO(String name, String description) { // Constructor de la clase TransportDTO
         this.name = name; // Asigna el valor de name al atributo name
@@ -26,11 +22,4 @@ public class TransportDTO { // Clase TransportDTO
     public TransportDTO(boolean active) { // Constructor de la clase TransportDTO
         this.active = active; // Asigna el valor de active al atributo active
     }
-
-    /*public TransportDTO(String origin, String destination, float price, int hours) {
-        this.origin = origin;
-        this.destination = destination;
-        this.price = price;
-        this.hours = hours;
-    }*/ 
 }
