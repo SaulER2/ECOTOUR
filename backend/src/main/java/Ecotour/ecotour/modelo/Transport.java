@@ -21,7 +21,7 @@ public class Transport { //Clase Transport
 
     @Id //Indica que el atributo es la llave primaria
     @GeneratedValue(strategy = GenerationType.IDENTITY) //Genera un valor automático para la llave primaria
-    //@OneToMany(mappedBy = "transport")
+    
     @Column(name = "id") //Indica el nombre de la columna en la base de datos
     private long id; //Atributo id de tipo long
 

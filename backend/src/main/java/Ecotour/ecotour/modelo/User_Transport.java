@@ -30,6 +30,10 @@ public class User_Transport { //Clase User_Transport
     @ManyToOne //Indica la relación muchos a uno con la clase Transport donde el atributo transport es de muchos
     @JoinColumn(name = "transport", nullable = false) //Indica el nombre de la columna en la base de datos y que no puede ser nulo
     private Transport transport; //Atributo transport de tipo Transport
+    
+    @ManyToOne
+    @JoinColumn(name = "driver")
+    private Driver driver;
 
     @Column(name = "origin", nullable = true) //Indica el nombre de la columna en la base de datos y que puede ser nulo
     private String origin; //Atributo origin de tipo String
@@ -43,8 +47,9 @@ public class User_Transport { //Clase User_Transport
     @Column(name = "hours", nullable = true) //Indica el nombre de la columna en la base de datos y que puede ser nulo
     private int hours; //Atributo hours de tipo int
     
-    public User_Transport(User user, Transport transport, String origin, String destination, float price, int hours) { //Constructor
+    public User_Transport(User user, Driver driver, Transport transport, String origin, String destination, float price, int hours) { //Constructor
         this.user = user; //Asigna el valor de id_user al atributo user
+        this.driver = driver;
         this.transport = transport; //Asigna el valor de id_transport al atributo transport
         this.origin = origin; //Asigna el valor de origin al atributo origin
         this.destination = destination; //Asigna el valor de destination al atributo destination

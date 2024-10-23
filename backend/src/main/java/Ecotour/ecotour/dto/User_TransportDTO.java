@@ -10,14 +10,16 @@ import lombok.NoArgsConstructor; // Importación de la clase necesaria para el c
 public class User_TransportDTO { // Declaración de la clase pública User_TransportDTO
     private long id; // Declaración de un atributo de tipo long
     private long user; // Declaración de un atributo de tipo long
+    private long driver;
     private long transport; // Declaración de un atributo de tipo long
     private String origin; // Declaración de un atributo de tipo String
     private String destination; // Declaración de un atributo de tipo String
     private float price; // Declaración de un atributo de tipo float
     private int hours; // Declaración de un atributo de tipo int
 
-    public User_TransportDTO(long user, long transport, String origin, String destination, float price, int hours) { // Declaración de un constructor con todos los parámetros menos el id
+    public User_TransportDTO(long user, long driver, long transport, String origin, String destination, float price, int hours) { // Declaración de un constructor con todos los parámetros menos el id
         this.user = user; // Inicialización del atributo id_user
+        this.driver = driver;
         this.transport = transport; // Inicialización del atributo id_transport
         this.origin = origin; // Inicialización del atributo origin
         this.destination = destination; // Inicialización del atributo destination

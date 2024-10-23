@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping; //Importa la clas
 import org.springframework.web.bind.annotation.RestController; //Importa la clase RestController
 
 @RestController //Anotación que indica que la clase es un controlador REST
-@RequestMapping("/api/v2") //Anotación que mapea una petición web a un método controlador
+@RequestMapping("/api/v1") //Anotación que mapea una petición web a un método controlador
 public class TransportController { //Clase TransportController
     
     @Autowired //Anotación que permite la inyección de dependencias

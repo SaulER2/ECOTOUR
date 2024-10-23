@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import Ecotour.ecotour.servicio.User_TransportService;
 
 @RestController
-@RequestMapping("/api/v3")
+@RequestMapping("/api/v1")
 public class UserTransportController {
 
     @Autowired

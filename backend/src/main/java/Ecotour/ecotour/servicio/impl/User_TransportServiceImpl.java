@@ -2,9 +2,11 @@ package Ecotour.ecotour.servicio.impl;  // Paquete donde se creará el archivo
 
 import Ecotour.ecotour.repository.User_TransportRepository; // Importación de la clase User_TransportRepository
 import Ecotour.ecotour.dto.User_TransportDTO; // Importación de la clase User_TransportDTO
+import Ecotour.ecotour.modelo.Driver;
 import Ecotour.ecotour.modelo.Transport;
 import Ecotour.ecotour.modelo.User;
 import Ecotour.ecotour.modelo.User_Transport; // Importación de la clase User_Transport
+import Ecotour.ecotour.servicio.DriverService;
 import Ecotour.ecotour.servicio.TransportService;
 import Ecotour.ecotour.servicio.UserService;
 import Ecotour.ecotour.servicio.User_TransportService; // Importación de la clase User_TransportService
@@ -23,15 +25,20 @@ public class User_TransportServiceImpl implements User_TransportService { // Cla
     private UserService userService;
     
     @Autowired
+    private DriverService driverService;
+    
+    @Autowired
     private TransportService transportService;
     
     @Override // Indica que se está sobreescribiendo un método de la clase padre
     public User_Transport save(User_TransportDTO registroDTO){ // Método para guardar un registro de User_Transport
         User user = userService.findById(registroDTO.getUser()).get();
         Transport transport = transportService.findById(registroDTO.getTransport()).get();
+        Driver driver = driverService.findDriverById(registroDTO.getDriver()).get();
         
         User_Transport user_transport = new User_Transport( // Creación de un objeto de tipo User_Transport
             user, // Atributo id_user del objeto User_Transport
+            driver,
             transport, // Atributo id_transport del objeto User_Transport
             registroDTO.getOrigin(), // Atributo origin del objeto User_Transport
             registroDTO.getDestination(), // Atributo destination del objeto User_Transport

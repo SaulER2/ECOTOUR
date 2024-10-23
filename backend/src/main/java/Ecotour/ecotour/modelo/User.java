@@ -2,10 +2,13 @@ package Ecotour.ecotour.modelo;
 
 import java.util.Set; //Importa la clase Set de la librería java.util
 import jakarta.persistence.Column; //Importa la clase Column de la librería jakarta.persistence
+import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.Entity;  //Importa la clase Entity de la librería jakarta.persistence
 import jakarta.persistence.GeneratedValue; //Importa la clase GeneratedValue de la librería jakarta.persistence
 import jakarta.persistence.GenerationType; //Importa la clase GenerationType de la librería jakarta.persistence
 import jakarta.persistence.Id; //Importa la clase Id de la librería jakarta.persistence
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table; //Importa la clase Table de la librería jakarta.persistence
 import lombok.AllArgsConstructor; //Importa la clase AllArgsConstructor de la librería lombok
@@ -17,7 +20,8 @@ import lombok.NoArgsConstructor; //Importa la clase NoArgsConstructor de la libr
 @NoArgsConstructor //Crea un constructor vacío
 @Entity    //Indica que la clase es una entidad
 @Table(name = "user") //Indica el nombre de la tabla en la base de datos
-
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "user_type")
 public class User { //Clase User
     @Id //Indica que el atributo es la llave primaria
     @GeneratedValue(strategy = GenerationType.IDENTITY)//Genera un valor automático para la llave primaria

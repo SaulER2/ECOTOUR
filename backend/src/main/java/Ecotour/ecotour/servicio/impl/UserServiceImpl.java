@@ -1,15 +1,20 @@
 package Ecotour.ecotour.servicio.impl; // Change the package name to Ecotour.ecotour.servicio.impl
 
-import Ecotour.ecotour.dto.UserDTO; // Change the package name to Ecotour.ecotour.dto
-import Ecotour.ecotour.modelo.User; // Change the package name to Ecotour.ecotour.modelo
-import Ecotour.ecotour.repository.UserRepository; // Change the package name to Ecotour.ecotour.repository
-import Ecotour.ecotour.servicio.UserService; // Change the package name to Ecotour.ecotour.servicio
 import java.util.List; // Import the List class
 import java.util.Optional; // Import the Optional class
 import org.springframework.beans.factory.annotation.Autowired; // Import the Autowired class
 import org.springframework.stereotype.Service; // Import the Service class
+//import java.sql.Driver;
+import Ecotour.ecotour.dto.DriverDTO;
+import Ecotour.ecotour.dto.UserDTO; // Change the package name to Ecotour.ecotour.dto
+//import Ecotour.ecotour.modelo.Driver;
+import Ecotour.ecotour.modelo.User; // Change the package name to Ecotour.ecotour.modelo
+import Ecotour.ecotour.repository.UserRepository; // Change the package name to Ecotour.ecotour.repository
+import Ecotour.ecotour.servicio.UserService; // Change the package name to Ecotour.ecotour.servicio
+import org.springframework.context.annotation.Primary;
 
 @Service // Add the Service annotation
+@Primary
 public class UserServiceImpl implements UserService{ // Change the class name to UserServiceImpl and implement the UserService interface
 
     @Autowired //Anotación que permite la inyección de dependencias
@@ -32,6 +37,11 @@ public class UserServiceImpl implements UserService{ // Change the class name to
     public List<User> findAll(UserDTO registroDTO) { //Método que recibe un objeto de la clase UserDTO para encontrar todos los usuarios
         return userRepository.findAll(); //Retorna el método findAll de la clase UserRepository
    }
+    
+   @Override
+    public List<User> findOnlyUser(DriverDTO registroDTO){
+        return userRepository.findOnlyUser(); //Retorna el método findByQuery de la clase UserRepository
+    }
     
     @Override
     public Optional<User> findById(Long id){ //Método que recibe un ID para encontrar un usuario por ID
