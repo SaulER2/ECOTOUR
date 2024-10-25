@@ -7,6 +7,7 @@ import Ecotour.ecotour.modelo.User_Transport;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -23,6 +24,7 @@ public class UserTransportController {
 
     @PostMapping("/newUserTransport")
     public User_Transport newUserTransport(@RequestBody User_TransportDTO registroDTO){
+        System.out.println(registroDTO);
         return user_TransportService.save(registroDTO);
     }
 
@@ -39,5 +41,10 @@ public class UserTransportController {
     @PutMapping("/update/userTransport/{id}")
     public Optional<User_Transport> updateUserTransport(@PathVariable Long id, @RequestBody User_TransportDTO registroDTO){
         return user_TransportService.updateUserTransport(id, registroDTO);
+    }
+
+    @PatchMapping("/modifyHours/{id}")
+    public Optional<User_Transport> updateDateUserTransport(@PathVariable Long id, @RequestBody User_TransportDTO registroDTO){
+        return user_TransportService.updateDateUserTransport(id, registroDTO);
     }
 }

@@ -14,4 +14,6 @@ public interface User_TransportService { // Se crea la interfaz User_TransportSe
     public Optional<User_Transport> findById(Long id); // Se crea el método findById que recibe un objeto de tipo Long y retorna un objeto de tipo Optional de tipo User_Transport
 
     public Optional<User_Transport> updateUserTransport(Long id, User_TransportDTO registroDTO); // Se crea el método updateUser que recibe un objeto de tipo Long y un objeto de tipo User_TransportDTO y retorna un objeto de tipo Optional de tipo User_Transport
+
+    public Optional<User_Transport> updateDateUserTransport(Long id, User_TransportDTO registroDTO);
 }

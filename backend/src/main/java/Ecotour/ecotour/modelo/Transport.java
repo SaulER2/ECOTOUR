@@ -34,6 +34,14 @@ public class Transport { //Clase Transport
     @Column(name = "active", nullable = false) //Indica que el atributo no puede ser nulo y el nombre de la columna en la base de datos
     private boolean active = true; //Atributo activo de tipo boolean
 
+    /*@Column(name = "state", nullable = false)
+    private State state;
+
+    public enum State {
+        AVAILABLE,
+        UNAVAILABLE
+    }*/
+
     @OneToMany(mappedBy = "transport")
     private Set<User_Transport> user_transport;
 

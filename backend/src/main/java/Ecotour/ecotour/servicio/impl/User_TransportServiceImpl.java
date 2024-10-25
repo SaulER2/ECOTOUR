@@ -42,9 +42,11 @@ public class User_TransportServiceImpl implements User_TransportService { // Cla
             transport, // Atributo id_transport del objeto User_Transport
             registroDTO.getOrigin(), // Atributo origin del objeto User_Transport
             registroDTO.getDestination(), // Atributo destination del objeto User_Transport
-            registroDTO.getPrice(), // Atributo price del objeto User_Transport
-            registroDTO.getHours() // Atributo hours del objeto User_Transport
+            registroDTO.getPricePerHour(),
+            registroDTO.getStartTime(),
+            registroDTO.getEndTime()
         );
+        System.out.println(user_transport);
         return user_transportRepository.save(user_transport); // Guardar el objeto User_Transport en la base de datos
     }
 
@@ -67,14 +69,33 @@ public class User_TransportServiceImpl implements User_TransportService { // Cla
         
             registroActualizadoDTO.setOrigin(registroDTO.getOrigin()); // Actualizar el atributo origin del registro
             registroActualizadoDTO.setDestination(registroDTO.getDestination()); // Actualizar el atributo destination del registro
-            registroActualizadoDTO.setPrice(registroDTO.getPrice()); // Actualizar el atributo price del registro
-            registroActualizadoDTO.setHours(registroDTO.getHours()); // Actualizar el atributo hours del registro
+            registroActualizadoDTO.setPricePerHour(registroDTO.getPricePerHour());
+            registroActualizadoDTO.setStartTime(registroDTO.getStartTime());
+            registroActualizadoDTO.setEndTime(registroDTO.getEndTime());
         
-        user_transportRepository.save(registroActualizadoDTO); // Guardar el registro actualizado en la base de datos
-        return Optional.of(registroActualizadoDTO); // Retornar el registro actualizado
+            user_transportRepository.save(registroActualizadoDTO); // Guardar el registro actualizado en la base de datos
+            return Optional.of(registroActualizadoDTO); // Retornar el registro actualizado
         }
         else{ // Si el registro no existe
         return Optional.empty(); // Retornar un objeto vacío
+        }
+    }
+
+    @Override
+    public Optional<User_Transport> updateDateUserTransport(Long id, User_TransportDTO registroDTO){
+        Optional<User_Transport> existingUserTransport = user_transportRepository.findById(id);
+
+        if(existingUserTransport.isPresent()){
+            User_Transport registroActualizadoDTO = existingUserTransport.get();
+
+            registroActualizadoDTO.setStartTime(registroDTO.getStartTime());
+            registroActualizadoDTO.setEndTime(registroDTO.getEndTime());
+
+            user_transportRepository.save(registroActualizadoDTO);
+            return Optional.of(registroActualizadoDTO);
+        }
+        else{
+            return Optional.empty();
         }
     }
 }
