@@ -5,13 +5,13 @@ import Login from './Components/LoginForm/Login'
 import Sign_up from './Components/SignupForm/Sign_up'
 //import  Start from './Components/StartPage/Start'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { Start } from './Components/StartPage/Start'
+import Start from './Components/StartPage/Start'
 import Header from './Components/Header/Header'
 function App() {
 
   return (
     <>
-      <div>
+      <div className='App'>
         <BrowserRouter>
         <Header/>
           <div className='container' id='#container'>

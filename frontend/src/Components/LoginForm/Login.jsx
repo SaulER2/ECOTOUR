@@ -1,65 +1,50 @@
-import React, {useState} from 'react'
-import {Link} from 'react-router-dom';
-import "./Login.css"
+import React, { useState } from 'react';
+import axios from 'axios';
+import './Login.css';
 
+const LoginForm = () => {
+  const [formData, setFormData] = useState({
+    username: '',
+    password: '',
+    name: '',
+    lastname: '',
+    email: '',
+    phone: ''
+  });
 
-export const Login = () => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('https://http://localhost:8079/api/v1/login', formData);
+      console.log('Login successful:', response.data);
+      // Handle successful login (e.g., redirect to another page)
+    } catch (error) {
+      console.error('Error logging in:', error);
+      // Handle login error (e.g., show error message)
+    }
+  };
+
   return (
-    <div className='wrapper' id='main__login'>
-      <div className='login__container'>
-      <h1 className='h1'>Login</h1>
-        <form action="">
-          <label htmlFor="Usuario" className="Usuario">
-            <span>Username</span>
-            <input type="text" id='Usuario' placeholder='Username1' autoComplete='Usuario' required/><br/>
-          </label>
-          <label htmlFor="Password" className="Contraseña">
-            <span>Password</span>
-            <input type="password" id="Password" placeholder='********' autoComplete='current-password' required/><br/>
-          </label>
-          <div className='remember-forgot'>
-            <label htmlFor="Forgotpassword" className="remember-forgot">
-              <input type="checkbox"/>
-              <span>Remind me</span><br/>
-            </label>
-          </div>
-          <div className = "Enviar">
-          <input type="submit" value="Enviar" className="Enviar"/>
-          </div>
-          <a href="#" className='a'>Forgot the password?</a>
-          <div className='register'>
-            <span>Don't have an account? </span>
-            <Link to="/signup" className='a'>Sign up!</Link>
-          </div>
-        </form>
+    <form onSubmit={handleSubmit} className='Login'>
+      <div>
+        <label>Username:</label>
+        <input type="text" name="username" value={formData.username} onChange={handleChange} required />
       </div>
-    </div>
-  )
-}
-export default Login;
+      <div>
+        <label>Password:</label>
+        <input type="password" name="password" value={formData.password} onChange={handleChange} required />
+      </div>
+      <button type="submit">Login</button>
+    </form>
+  );
+};
 
-/*export default function Login() {
-
-  return (
-    <div>
-        <header>
-            <h1>Login</h1><br/>
-        </header>
-        <main>
-            <section>
-                <form action="">
-                    <label htmlFor="Usuario">
-                        <span>Usuario</span><br/>
-                        <input type="text" id='Usuario' placeholder='Usuario1' autoComplete='Usuario' required/><br/>
-                    </label>
-                    <label htmlFor="Password">
-                        <span>Contraseña</span><br/>
-                        <input type="password" id='Password' placeholder='********' autoComplete='current-password' required/><br/>
-                    </label>
-                    <input type="submit" value="Enviar"/>
-                </form>
-            </section>
-        </main>
-    </div>
-  )
-}*/
+export default LoginForm;

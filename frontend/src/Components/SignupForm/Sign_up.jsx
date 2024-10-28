@@ -1,21 +1,24 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './Sign_up.css';
 
-/*const Sign_up = () => {
+const Sign_up = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
     const [lastname, setLastname] = useState('');
     const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
 
     const handleSign_up = async () => {
         try {
-            const response = await axios.post('http://localhost:8080/api/auth/signup', {
+            const response = await axios.post('http://localhost:8079/api/v1/signup', {
                 username: username,
                 password: password,
                 name: name,
                 lastname: lastname,
-                email: email
+                email: email,
+                phone: phone
             });
             console.log(response.data); // Manejar la respuesta del servidor
         } catch (error) {
@@ -24,11 +27,11 @@ import axios from 'axios';
     };
 
     return (
-        <div>
-            <h2>Registrarse</h2>
+        <div className='Signup'>
+            <h2>Sign up</h2>
             <input
                 type="text"
-                placeholder="User"
+                placeholder="Username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
             />
@@ -56,23 +59,20 @@ import axios from 'axios';
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
             />
-            <button onClick={handleSignUp}>Registrarse</button>
+            <input
+                type="tel"
+                placeholder="Phone"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+            />
+            <button className='sign_up' onClick={handleSign_up}>Sign Up</button>
         </div>
     );
 };
 
 export default Sign_up;
 
-export const Sign_up = () => {
-  return (
-    <div>
-      <h1>Sign Up</h1>
-    </div>
-  )
-}*/
-
-
-export default function Sign_up() {
+/*export default function Sign_up() {
   return (
     <div>
       <header>
@@ -112,4 +112,4 @@ export default function Sign_up() {
     </main>
     </div>
   )
-}
+}*/

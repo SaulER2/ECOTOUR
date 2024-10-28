@@ -1,48 +1,45 @@
-.container
-{
-    background-color: rgba(81, 255, 0, 0.555);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: fit-content;
-    height: fit-content;
+/* Login.css */
+
+.Login {
+    color: #000000;
+    width: 100%;
 }
 
-h1.h1{
-    margin-left: 36%;
-    font-size: 8vh;
+.Login {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
 }
 
-span
-{
-    font-size: 4vh;
+.Login {
+    margin-bottom: 20px;
+    color: #333333;
 }
 
-.a
-{
-    color: rgba(0, 0, 0, 0.548);
-    font-size: 5vh;
+.Login input[type="text"],
+.Login input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
-.remember-forgot
-{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+.Login button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
-.Enviar
-{
-    display: flex;
-    justify-content: center;
-}
-
-input
-{
-    font-size: 5vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.Login button:hover {
+    background-color: #45a049;
 }

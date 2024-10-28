@@ -19,4 +19,6 @@ public interface UserService { // Se crea la interfaz UserService
     public Optional<User> updateUser(Long id, UserDTO registroDTO); // Se crea el método updateUser que recibe un objeto de tipo Long y un objeto de tipo UserDTO y retorna un objeto de tipo Optional de tipo User
     
     public Optional<User> deleteById(Long id, UserDTO registroDTO); // Se crea el método deleteById que recibe un objeto de tipo Long y un objeto de tipo UserDTO y retorna un objeto de tipo Optional de tipo User
+    
+    public Optional<User> findByUsername(String username, UserDTO registroDTO);
 }

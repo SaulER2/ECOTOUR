@@ -86,4 +86,9 @@ public class UserServiceImpl implements UserService{ // Change the class name to
         return Optional.empty(); //Retorna un valor vacío
         }
     }
+    
+    @Override
+    public Optional<User> findByUsername(String username, UserDTO registroDTO){
+        return userRepository.findByUsername(username);
+    }
 }

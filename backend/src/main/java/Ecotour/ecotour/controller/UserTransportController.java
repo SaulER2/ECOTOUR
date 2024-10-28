@@ -47,4 +47,6 @@ public class UserTransportController {
     public Optional<User_Transport> updateDateUserTransport(@PathVariable Long id, @RequestBody User_TransportDTO registroDTO){
         return user_TransportService.updateDateUserTransport(id, registroDTO);
     }
+    
+    //TODO ADD SOFT DELETE
 }

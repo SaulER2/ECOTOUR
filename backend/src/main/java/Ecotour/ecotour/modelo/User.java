@@ -67,13 +67,13 @@ public class User { //Clase User
         this.name = name; 
         this.lastname = lastname;
         this.email = email;
-    }
+    }*/
 
     public User(String username, String password) {
         this.username = username;
         this.password = password;
     }
-
+    /*
     public User(String email) {
         this.email = email;
     }
